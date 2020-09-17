@@ -2,18 +2,35 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //
 import 'package:todoey_flutter/widgets/tasks_list.dart';
+import 'package:todoey_flutter/screens/add_task_screen.dart';
 
 class TasksScreen extends StatelessWidget {
+  // Widget buildBottomSheet(BuildContext context) {
+  //   return Container(
+  //     child: Center(
+  //       child: Text(
+  //         'this is a bottom sheet',
+  //         style: TextStyle(fontSize: 20.0),
+  //       ),
+  //     ),
+  //   );
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
+        child: Icon(Icons.add),
         onPressed: () {
           //adding task
+          // showModalBottomSheet(context: context, builder: buildBottomSheet);
+          showModalBottomSheet(
+            context: context,
+            builder: (BuildContext context) => AddTaskScreen(),
+          );
         },
-        child: Icon(Icons.add),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
