@@ -31,6 +31,7 @@ class AddTaskScreen extends StatelessWidget {
               autofocus: true,
               textAlign: TextAlign.center,
             ),
+            SizedBox(height: 20.0),
             FlatButton(
               child: Text(
                 'Add',
