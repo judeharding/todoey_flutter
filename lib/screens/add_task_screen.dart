@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class AddTaskScreen extends StatelessWidget {
+  final Function addTaskCallback;
+  AddTaskScreen(this.addTaskCallback);
+
   @override
   Widget build(BuildContext context) {
+    String newTaskTitle;
     return Container(
       //outer container that is grey to show rounded corners
       color: Color(0xff757575),
@@ -30,6 +34,9 @@ class AddTaskScreen extends StatelessWidget {
             TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newText) {
+                newTaskTitle = newText;
+              },
             ),
             SizedBox(height: 20.0),
             FlatButton(
@@ -41,7 +48,9 @@ class AddTaskScreen extends StatelessWidget {
               ),
               color: Colors.lightBlueAccent,
               onPressed: () {
-                //add task to list
+                // print(newTaskTitle);
+                addTaskCallback(newTaskTitle);
+                // Navigator.pop(context);
               },
             ),
           ],
